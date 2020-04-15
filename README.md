@@ -1,0 +1,2 @@
+# StandAlone
+Stand alone projects
