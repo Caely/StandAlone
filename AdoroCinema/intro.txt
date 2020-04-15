@@ -1,0 +1,5 @@
+Use the following commands to setup:
+
+pip install beutifulsoup4
+pip install lxml
+pip install requests
