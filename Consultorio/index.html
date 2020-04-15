@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Agenda</title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <h1>Agendamento de Clientes</h1>
+     
+        <form>
+            <h2>Novo paciente</h2>
+            
+            <div class="valores">
+                <label for="nome">Nome: </label>
+                <input type="text" id="nome" name="firstname" placeholder="nome...">       
+            </div>
+
+            <div class="valores">
+                <label for="dia">Dia: </label>
+                <input type="text" id="dia" name="firstname" placeholder="segunda,terca..."> 
+            </div>
+            
+            <div class="valores">
+                <label for="hora">Horário: </label>
+                <input type="text" id="hora" name="firstname" placeholder="horário...">
+            </div>
+
+            <div class="valores">
+                <label for="local">Local: </label>
+            
+                    <label>Torre</label>
+                    <input type="radio" id="torre" name="firstname" value="Torre">
+                
+                    <label>Casa Amarela</label>
+                    <input type="radio" id="ca" name="firstname" value="Casa Amarela">
+            </div>
+        
+            <button class="btn cadastra" type="submit">Salvar</button>
+        
+        </form>
+
+        <h2>Cronograma</h2>
+        <div class="tabela"></div>   
+    </body>
+
+    <script src="js/model/Paciente.js"></script>
+    <script src="js/model/Semana.js"></script>
+    <script src="js/view/AgendaView.js"></script>
+    <script>
+
+        var semana = new Semana();
+        
+        let table = document.querySelector(".tabela");
+        let start = new AgendaView(table);
+        start.update(semana);
+
+
+        let butao = document.querySelector("button");
+
+        butao.addEventListener("click", function(event){
+
+            event.preventDefault();
+
+            let nome = document.querySelector("#nome");
+            let dia = document.querySelector("#dia");
+            let hora = document.querySelector("#hora");
+            let local = document.querySelector("#torre");
+            let local2 = document.querySelector("#ca");
+
+            if(local.checked) local = local;
+            if(local2.checked) local = local2;
+            
+            let paciente = new Paciente(nome.value,hora.value,local.value);
+
+            semana.adiciona(paciente,dia.value);
+
+            let table = document.querySelector(".tabela");
+            let view = new AgendaView(table);
+            view.update(semana);
+            console.log(view);
+        });
+
+        
+        let tabela = document.querySelector(".tabela");
+
+        tabela.addEventListener("click",function(event) {
+            event.preventDefault();
+            let content = event.target.textContent;
+            let regex = /([\w\s]*[^\s\/])/g;
+            let resultado = content.match(regex);
+
+            semana.semana.map(function(dia){
+                dia.map(function(nome){
+                    if(nome != ''){
+                        if(nome.paciente == resultado[0]) console.log("aqui");
+                        else console.log("nenhum valor igual encontrado");
+                    }
+                });
+            });
+        });
+
+    </script>
+</html>

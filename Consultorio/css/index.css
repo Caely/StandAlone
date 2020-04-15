@@ -1,0 +1,70 @@
+body{
+    background-color: #ffebeb;
+}
+
+h2{
+    text-align: center;
+}
+
+form{
+    background-color: white;
+    border-radius: 10px;
+    display: block;
+    width: 30%;
+    height: 40%;
+    padding: 5px;
+    border: 1px solid transparent;    
+}
+
+.valores {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+}
+
+.valores input {
+    font-size: 15px;
+    border-radius: 4px 4px;
+}
+
+button {
+    border-radius: 10px 10px;
+    background-color: #72b0ce;
+    height: 25%;
+    width: 25%;
+    margin-top: 10px;
+    font-size: 115%;
+}
+
+table, th, td {
+    border-radius: 2px;
+    padding: 5px;
+  }
+
+.dias {
+    text-align: left;
+    width: 5%;
+    background-color: #7e9bc8;
+    font-size: 18px;
+}
+
+.horas{
+    text-align: center;
+    width: 8%;
+}
+
+.horas th {
+    background-color: #7e9bc8;
+    font-size: 18px;
+}
+
+.whiteline{
+    background-color: white;
+    font-size: 18px;
+}
+
+.greyline{
+    background-color: #e1dada;
+    font-size: 18px;
+}
